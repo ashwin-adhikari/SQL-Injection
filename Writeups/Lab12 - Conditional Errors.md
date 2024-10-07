@@ -1,0 +1,3 @@
+**<h2>Background Conditional Error Responses</h2>**
+Some applications carry out SQL queries but their behavior doesn't change, regardless of whether the query returns any data. <br>
+It's often possible to induce the application to return a different response depending on whether a SQL error occurs. We can modify the query so that it causes a database error only if the condition is true. Very often, an unhandled error thrown by the database causes some difference in the application's response, such as an error message. This enables us to infer the truth of the injected condition. 
